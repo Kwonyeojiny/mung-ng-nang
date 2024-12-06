@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
+import Copyright from './Copyright';
 
 const Layout = () => {
   return (
@@ -8,6 +9,7 @@ const Layout = () => {
       <main className="flex-grow flex items-center justify-center">
         <Outlet />
       </main>
+      <Copyright />
     </div>
   );
 };
