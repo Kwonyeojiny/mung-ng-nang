@@ -12,7 +12,11 @@ export default {
       black: '#262425',
       error: '#DE2C35',
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        'bottom-only': '0 6px 0px rgb(36, 83, 123)',
+      },
+    },
     fontFamily: {
       sans: [
         'Inter',
