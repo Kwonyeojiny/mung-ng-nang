@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       boxShadow: {
-        'bottom-only': '0 6px 0px rgb(36, 83, 123)',
+        'bottom-blue': '0 6px 0 rgb(36, 83, 123)',
+        'bottom-gray': '0 6px 0 rgb(178, 174, 171)',
       },
     },
     fontFamily: {
