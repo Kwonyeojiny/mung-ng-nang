@@ -6,6 +6,7 @@ export default {
       transperent: 'transperent',
       current: 'currentColor',
       'brand-blue': '#306FA4',
+      'brand-skyblue': '#ABC5DA',
       'brand-deep-blue': '#1B5B91',
       'brand-yellow': '#E5B76D',
       white: '#EDE8E4',
