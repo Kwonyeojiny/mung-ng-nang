@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { YellowButton } from '../components/common/Button';
-import Card from '../components/common/Card';
-import Input from '../components/common/Input';
+import { YellowButton } from '../components/ui/Button';
+import Card from '../components/ui/Card';
+import Input from '../components/ui/Input';
 
 const SignUp = () => {
   return (
