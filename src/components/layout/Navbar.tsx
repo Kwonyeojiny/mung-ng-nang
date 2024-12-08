@@ -16,9 +16,10 @@ const Navbar = () => {
       </Link>
       <div className="flex gap-8 items-center">
         {!isLoggined ? (
-          <Link to="/login" onClick={handleLog}>
-            로그인
-          </Link>
+          <>
+            <Link to="/login">로그인</Link>
+            <Link to="signup">회원가입</Link>
+          </>
         ) : (
           <>
             <Link to="/mypage">마이페이지</Link>
