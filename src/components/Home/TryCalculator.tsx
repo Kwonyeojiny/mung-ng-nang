@@ -1,4 +1,4 @@
-import { YellowButton } from '../ui/Button';
+import Button from '../ui/Button';
 import Card from '../ui/Card';
 import HomeCalculator from './HomeCalculator';
 
@@ -15,7 +15,7 @@ const TryCalculator = () => {
               로그인해서 더 많은 기능을.. <br />
               그래프 궁금하면 우리 회원이 되거라
             </p>
-            <YellowButton text="그래프 보러가기?" />
+            <Button size="lg">그래프 보러가기?</Button>
           </div>
         </div>
       </Card>

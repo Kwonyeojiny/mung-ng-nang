@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { YellowButton } from '../ui/Button';
+import Button from '../ui/Button';
 import Card from '../ui/Card';
 
 const Introduce = () => {
@@ -18,7 +18,7 @@ const Introduce = () => {
               computing with modern functionality.
             </p>
             <Link to="/login" className="w-fit">
-              <YellowButton text="로그인유도버튼" className="w-auto" />
+              <Button size="lg">로그인 유도 버튼</Button>
             </Link>
           </div>
           <div className="h-52 bg-[#C4D1DD] p-4 rounded-md border-[1px]">이미지 박스</div>

@@ -1,4 +1,4 @@
-import { BlueButton, YellowButton } from '../ui/Button';
+import Button from '../ui/Button';
 import Input from '../ui/Input';
 
 const HomeCalculator = () => {
@@ -13,11 +13,11 @@ const HomeCalculator = () => {
 
           <div className="flex justify-between gap-4 ">
             <div className="text-sm">다이어트 필요 여부</div>
-            <BlueButton text="비만도 확인" className="h-10" />
+            <Button style="secondary">비만도 확인</Button>
           </div>
         </div>
 
-        <YellowButton text="계산하기" />
+        <Button>계산하기</Button>
       </form>
     </div>
   );

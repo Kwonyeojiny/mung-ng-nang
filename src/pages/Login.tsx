@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { YellowButton } from '../components/ui/Button';
+import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Input from '../components/ui/Input';
 
@@ -20,7 +20,7 @@ const Login = () => {
             <div className="text-xs text-right text-black">비밀번호 찾기</div>
           </div>
           <Link to="/">
-            <YellowButton text="로그인" className="w-full" />
+            <Button className="w-full">Button</Button>
           </Link>
           <Link to="/signup" className="text-xs text-center text-brand-blue">
             회원가입
