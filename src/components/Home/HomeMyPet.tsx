@@ -5,9 +5,9 @@ import PetCard from './PetCard';
 const HomeMyPet = () => {
   return (
     <div className="flex justify-center items-center">
-      <Card className="flex gap-8 justify-between">
+      <Card className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-between">
         <div>
-          <h3 className="text-2xl">00이 얼마나 컸을까요</h3>
+          <h3 className="text-3xl">00이 얼마나 컸을까요</h3>
           <p>
             Experience the nostalgia of 90s
             <br />
@@ -15,7 +15,7 @@ const HomeMyPet = () => {
           </p>
           <Button size="lg">버튼</Button>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-8 justify-between md:justify-end">
           <PetCard />
           <PetCard />
         </div>

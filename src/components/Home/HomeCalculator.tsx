@@ -3,7 +3,7 @@ import Input from '../ui/Input';
 
 const HomeCalculator = () => {
   return (
-    <div className=" border-[2px] p-8 rounded-lg shadow-bottom-gray flex flex-col gap-8">
+    <div className="shadow-bottom-md min-w-[320px] max-w-[440px] border-[2px] p-8 rounded-lg shadow-bottom-gray flex flex-col gap-8">
       <h3 className="text-center text-xl">필요 칼로리 계산기</h3>
       <form className="flex flex-col gap-8">
         <div className="flex flex-col gap-4">
