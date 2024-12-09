@@ -11,7 +11,7 @@ type ButtonProps = {
 
 const buttonType = {
   button:
-    'flex items-center px-4 py-1.5 min-w-fit whitespace-nowrap border-2 border-black rounded-2xl text-black disabled:opacity-60 disabled:cursor-not-allowed',
+    'flex items-center justify-center px-4 py-1.5 min-w-fit whitespace-nowrap border-2 border-black rounded-2xl text-black disabled:opacity-60 disabled:cursor-not-allowed',
   link: 'underline font-sans',
 };
 
