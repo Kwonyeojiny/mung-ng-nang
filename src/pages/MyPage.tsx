@@ -1,8 +1,14 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '../components/ui/Avatar';
 import Button from '../components/ui/Button';
+import Input from '../components/ui/Input';
 import DataWithLabel from '../components/mypage/DataWithLabel';
 import MyPageCard from '../components/mypage/MyPageCard';
+import EditButton from '../components/ui/EditButton';
 import { DefaultUserImageType } from '../constants/defaultImages';
+import { RootState } from '../store/store';
+import { updatePetName } from '../store/petSlice';
 
 interface User {
   user_id: string;
@@ -14,37 +20,32 @@ const userDummyData: User = {
   user_img: '1',
 };
 
-interface Pet {
-  id: string;
-  name: string;
-  profile_img: string;
-  type: string;
-  species: string;
-  is_neutering: boolean;
-  birth_date: string;
-  age: number;
-  weight: number;
-  is_diet_required: boolean;
-  calories_needed_per_day: number;
-}
-
-const petDummyData: Pet[] = [
-  {
-    id: '1',
-    name: '홍삼',
-    profile_img: '',
-    type: '강아지',
-    species: '믹스',
-    is_neutering: true,
-    birth_date: '2023-02-07',
-    age: 1,
-    weight: 5.9,
-    is_diet_required: false,
-    calories_needed_per_day: 587,
-  },
-];
-
 const MyPage = () => {
+  const dispatch = useDispatch();
+  const pets = useSelector((state: RootState) => state.pet.pets);
+  const [editingStates, setEditingStates] = useState<{ [key: string]: boolean }>({});
+  const [nameInputs, setNameInputs] = useState<{ [key: string]: string }>({});
+
+  const handleEditPetName = (petId: string) => {
+    setEditingStates(prev => ({ ...prev, [petId]: true }));
+    const pet = pets.find(p => p.id === petId);
+    if (pet) {
+      setNameInputs(prev => ({ ...prev, [petId]: pet.name }));
+    }
+  };
+
+  const handleNameInputChange = (petId: string, value: string) => {
+    setNameInputs(prev => ({ ...prev, [petId]: value }));
+  };
+
+  const handleSaveName = (petId: string) => {
+    const newName = nameInputs[petId];
+    if (newName?.trim()) {
+      dispatch(updatePetName({ id: petId, name: newName.trim() }));
+      setEditingStates(prev => ({ ...prev, [petId]: false }));
+    }
+  };
+
   return (
     <div className="flex flex-col justify-center items-center h-full">
       <div className="flex justify-center gap-6 scrollbar-hide">
@@ -69,14 +70,37 @@ const MyPage = () => {
           </Button>
         </MyPageCard>
 
-        {petDummyData.map(pet => (
+        {pets.map(pet => (
           <MyPageCard key={pet.id} className="last:mr-10">
-            <p className="text-2xl">{pet.name}</p>
+            <div className="flex items-center justify-center gap-2 relative self-stretch h-10">
+              {editingStates[pet.id] ? (
+                <>
+                  <Input
+                    id={`input-${pet.id}`}
+                    placeholder={pet.name}
+                    className="flex-1"
+                    value={nameInputs[pet.id] || ''}
+                    onChange={e => handleNameInputChange(pet.id, e.target.value)}
+                  />
+                  <Button className="rounded-xl" onClick={() => handleSaveName(pet.id)}>
+                    저장
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <p className="text-2xl">{pet.name}</p>
+                  <EditButton
+                    className="absolute top-1 right-0"
+                    onClick={() => handleEditPetName(pet.id)}
+                  />
+                </>
+              )}
+            </div>
             <div>
-              <Avatar imgUrl={pet.profile_img} alt={pet.name} />
+              <Avatar imgUrl={pet.profile_img} alt={pet.name} isEditable={true} />
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="self-stretch flex flex-col gap-4">
               <DataWithLabel label="나이" value={pet.age} />
               <DataWithLabel label="종" value={pet.species} />
               <DataWithLabel label="몸무게" value={pet.weight} />
