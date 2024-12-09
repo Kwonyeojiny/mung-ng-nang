@@ -5,7 +5,7 @@ import TryCalculator from '../components/Home/TryCalculator';
 
 const Home = () => {
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 w-full max-w-[1200px]">
       <Introduce />
       <TryCalculator />
 

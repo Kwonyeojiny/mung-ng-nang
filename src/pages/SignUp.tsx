@@ -6,7 +6,7 @@ import Input from '../components/ui/Input';
 const SignUp = () => {
   return (
     <>
-      <Card className="w-[440px] flex flex-col gap-8">
+      <Card className="max-w-[440px] flex flex-col gap-8">
         <h3 className="text-2xl text-center ">회원가입</h3>
         <form className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
