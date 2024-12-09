@@ -1,4 +1,4 @@
-import { YellowButton } from '../ui/Button';
+import Button from '../ui/Button';
 import Card from '../ui/Card';
 import PetCard from './PetCard';
 
@@ -13,7 +13,7 @@ const HomeMyPet = () => {
             <br />
             computing with modern functionality.
           </p>
-          <YellowButton text="버튼" />
+          <Button size="lg">버튼</Button>
         </div>
         <div className="flex gap-4">
           <PetCard />
