@@ -47,8 +47,8 @@ const MyPage = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-full">
-      <div className="flex justify-center gap-6 scrollbar-hide">
+    <div className="flex flex-col justify-center items-center w-full h-full">
+      <div className="flex gap-6 max-w-screen-full overflow-x-auto scrollbar-hide px-10">
         <MyPageCard>
           <p className="text-2xl">내 정보</p>
           <Avatar imgId={userDummyData.user_img} alt={userDummyData.user_id} />
@@ -71,7 +71,7 @@ const MyPage = () => {
         </MyPageCard>
 
         {pets.map(pet => (
-          <MyPageCard key={pet.id} className="last:mr-10">
+          <MyPageCard key={pet.id}>
             <div className="flex items-center justify-center gap-2 relative self-stretch h-10">
               {editingStates[pet.id] ? (
                 <>

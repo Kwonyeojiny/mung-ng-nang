@@ -18,6 +18,9 @@ export default {
       boxShadow: {
         'bottom-md': '0 6px 0 rgba(0,0,0,0.25)',
       },
+      maxWidth: {
+        'screen-full': '100vw',
+      },
     },
     fontFamily: {
       sans: [
@@ -33,5 +36,5 @@ export default {
       Jua: 'Jua',
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide')],
 };
