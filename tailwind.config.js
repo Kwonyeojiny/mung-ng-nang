@@ -13,17 +13,22 @@ export default {
       white: '#EDE8E4',
       black: '#262425',
       error: '#DE2C35',
+      placeholder: 'rgba(38, 36, 37, 0.4)',
     },
     extend: {
-      boxShadow: {
-        'bottom-md': '0 6px 0 rgba(0,0,0,0.25)',
-      },
       maxWidth: {
         'screen-full': '100vw',
+      },
+      borderColor: {
+        transparent: 'rgba(0, 0, 0, 0)',
+      },
+      boxShadow: {
+        'bottom-md': '0 6px 0 rgba(0,0,0,0.25)',
       },
     },
     fontFamily: {
       sans: [
+        'Apple SD Gothic Neo',
         'Inter',
         '-apple-system',
         'BlinkMacSystemFont',

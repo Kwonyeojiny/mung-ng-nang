@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 type ButtonProps = {
   type?: 'button' | 'link';
+  htmlType?: 'button' | 'submit' | 'reset';
   size?: 'sm' | 'md' | 'lg';
   style?: 'primary' | 'secondary' | 'danger';
   children: React.ReactNode;
@@ -11,7 +12,7 @@ type ButtonProps = {
 
 const buttonType = {
   button:
-    'flex items-center justify-center px-4 py-1.5 min-w-fit whitespace-nowrap border-2 border-black rounded-2xl text-black disabled:opacity-60 disabled:cursor-not-allowed',
+    'flex items-center justify-center px-4 py-1.5 min-w-fit whitespace-nowrap border-2 rounded-2xl disabled:opacity-60 disabled:cursor-not-allowed',
   link: 'underline font-sans',
 };
 
@@ -36,6 +37,7 @@ const buttonStyles = {
 
 const Button = ({
   type = 'button',
+  htmlType = 'button',
   size = 'md',
   style = 'primary',
   children,
@@ -47,7 +49,11 @@ const Button = ({
   const styleClasses = buttonStyles[type][style];
 
   return (
-    <button onClick={onClick} className={clsx(typeClasses, sizeClasses, styleClasses, className)}>
+    <button
+      type={htmlType}
+      onClick={onClick}
+      className={clsx(typeClasses, sizeClasses, styleClasses, className)}
+    >
       {children}
     </button>
   );

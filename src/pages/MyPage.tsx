@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '../components/ui/Avatar';
 import Button from '../components/ui/Button';
@@ -6,6 +7,7 @@ import Input from '../components/ui/Input';
 import DataWithLabel from '../components/mypage/DataWithLabel';
 import MyPageCard from '../components/mypage/MyPageCard';
 import EditButton from '../components/ui/EditButton';
+import AddPetButton from '../components/mypage/AddPetButton';
 import { DefaultUserImageType } from '../constants/defaultImages';
 import { RootState } from '../store/store';
 import { updatePetName } from '../store/petSlice';
@@ -21,6 +23,7 @@ const userDummyData: User = {
 };
 
 const MyPage = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const pets = useSelector((state: RootState) => state.pet.pets);
   const [editingStates, setEditingStates] = useState<{ [key: string]: boolean }>({});
@@ -46,9 +49,13 @@ const MyPage = () => {
     }
   };
 
+  const handleAddPetButton = () => {
+    navigate('/mypage/new-pet');
+  };
+
   return (
     <div className="flex flex-col justify-center items-center w-full h-full">
-      <div className="flex gap-6 max-w-screen-full overflow-x-auto scrollbar-hide px-10">
+      <div className="flex gap-6 max-w-screen-full overflow-x-auto scrollbar-hide px-10 pb-6">
         <MyPageCard>
           <p className="text-2xl">내 정보</p>
           <Avatar imgId={userDummyData.user_img} alt={userDummyData.user_id} />
@@ -78,13 +85,10 @@ const MyPage = () => {
                   <Input
                     id={`input-${pet.id}`}
                     placeholder={pet.name}
-                    className="flex-1"
                     value={nameInputs[pet.id] || ''}
                     onChange={e => handleNameInputChange(pet.id, e.target.value)}
                   />
-                  <Button className="rounded-xl" onClick={() => handleSaveName(pet.id)}>
-                    저장
-                  </Button>
+                  <Button onClick={() => handleSaveName(pet.id)}>저장</Button>
                 </>
               ) : (
                 <>
@@ -119,6 +123,8 @@ const MyPage = () => {
             <Button>칼로리 다시 계산하기</Button>
           </MyPageCard>
         ))}
+
+        <AddPetButton onClick={handleAddPetButton} />
       </div>
     </div>
   );

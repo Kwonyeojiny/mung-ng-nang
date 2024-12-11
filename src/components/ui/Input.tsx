@@ -1,12 +1,14 @@
 import * as React from 'react';
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
   id: string;
+  label?: string;
+  unit?: string;
+  placeholder?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, label, id, ...props }, ref) => {
+  ({ className, type, label, id, unit, placeholder, ...props }, ref) => {
     return (
       <div className="flex flex-col">
         {label && (
@@ -14,15 +16,20 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {label}
           </label>
         )}
-        <input
-          id={id}
-          type={type}
-          autoComplete="off"
-          className={`rounded-xl border-[2px] p-1.5  bg-white placeholder:text-sm
-          ${className}`}
-          ref={ref}
-          {...props}
-        />
+        <div className="w-full relative">
+          <input
+            id={id}
+            type={type}
+            autoComplete="off"
+            className={`w-full rounded-2xl border-[2px] h-10 px-4 bg-white placeholder:text-sm placeholder:text-placeholder font-sans ${className} ${
+              unit ? 'pr-10 text-right' : ''
+            }`}
+            ref={ref}
+            placeholder={placeholder}
+            {...props}
+          />
+          {unit && <p className="absolute top-2 right-4">{unit}</p>}
+        </div>
       </div>
     );
   },
