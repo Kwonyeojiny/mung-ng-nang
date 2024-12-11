@@ -8,6 +8,7 @@ export default {
       'brand-blue': '#306FA4',
       'brand-skyblue': '#ABC5DA',
       'brand-deep-blue': '#1B5B91',
+      'brand-deep-blue-hover': '#1F5888',
       'brand-yellow': '#E5B76D',
       'brand-beige': '#EDD4C0',
       white: '#EDE8E4',

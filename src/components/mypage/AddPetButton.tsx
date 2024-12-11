@@ -7,7 +7,7 @@ type ButtonProps = {
 const AddPetButton = ({ onClick }: ButtonProps) => {
   return (
     <button
-      className="shrink-0 flex flex-col items-center justify-center gap-4 w-96 rounded-xl bg-brand-deep-blue text-white text-2xl"
+      className="flex flex-col items-center justify-center gap-4 w-full h-full rounded-xl bg-brand-deep-blue hover:bg-brand-deep-blue-hover text-white text-2xl"
       onClick={onClick}
     >
       <Plus color="white" />

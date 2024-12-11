@@ -16,19 +16,19 @@ const petDummyData: Pet[] = [
     is_diet_required: false,
     calories_needed_per_day: 587,
   },
-  {
-    id: '2',
-    name: '짜장',
-    profile_img: '',
-    type: '강아지',
-    species: '믹스',
-    is_neutering: true,
-    birth_date: '2023-02-07',
-    age: 1,
-    weight: 5.9,
-    is_diet_required: false,
-    calories_needed_per_day: 587,
-  },
+  // {
+  //   id: '2',
+  //   name: '짜장',
+  //   profile_img: '',
+  //   type: '강아지',
+  //   species: '믹스',
+  //   is_neutering: true,
+  //   birth_date: '2023-02-07',
+  //   age: 1,
+  //   weight: 5.9,
+  //   is_diet_required: false,
+  //   calories_needed_per_day: 587,
+  // },
 ];
 
 interface PetState {
