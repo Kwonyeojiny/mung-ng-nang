@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-type ButtonProps = {
+export type ButtonProps = {
   type?: 'button' | 'link';
   htmlType?: 'button' | 'submit' | 'reset';
   size?: 'sm' | 'md' | 'lg';

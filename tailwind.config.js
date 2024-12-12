@@ -16,16 +16,29 @@ export default {
       black: '#262425',
       error: '#DE2C35',
       placeholder: 'rgba(38, 36, 37, 0.4)',
+      scrim: 'rgba(38, 36, 37, 0.6)',
     },
     extend: {
+      width: {
+        'screen-full': '100vw',
+      },
+      height: {
+        'screen-full': '100vh',
+      },
       maxWidth: {
         'screen-full': '100vw',
+      },
+      maxHeight: {
+        'screen-full': '100vh',
       },
       borderColor: {
         transparent: 'rgba(0, 0, 0, 0)',
       },
       boxShadow: {
         'bottom-md': '0 6px 0 rgba(0,0,0,0.25)',
+      },
+      borderWidth: {
+        3: '3px',
       },
     },
     fontFamily: {

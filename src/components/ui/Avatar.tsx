@@ -19,7 +19,7 @@ export const AvatarChangeButton = () => {
 const Avatar = ({ imgId, imgUrl, alt, isEditable = false }: AvatarProps) => {
   return (
     <div className="relative">
-      <div className="flex items-center justify-center w-32 h-32 rounded-[52px] overflow-hidden border-[3px]">
+      <div className="flex items-center justify-center w-32 h-32 rounded-[52px] overflow-hidden border-3">
         {imgId ? (
           <img src={DEFAULT_USER_PROFILE_IMAGES[imgId]} alt={alt} />
         ) : (
