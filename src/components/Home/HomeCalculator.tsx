@@ -1,24 +1,70 @@
+import { useState } from 'react';
 import Button from '../ui/Button';
 import Input from '../ui/Input';
+import Switch from '../ui/Switch';
+import Popup from '../popup/Popup';
+
+const neuterOptions = [
+  {
+    id: 'true',
+    value: '완료',
+  },
+  {
+    id: 'false',
+    value: '미완료',
+  },
+];
+const dietOptions = [
+  {
+    id: 'true',
+    value: '필요',
+  },
+  {
+    id: 'false',
+    value: '불필요',
+  },
+];
+
+type PopupType = 'check-body-condition' | null;
 
 const HomeCalculator = () => {
+
+  const [activePopup, setActivePopup] = useState<PopupType>(null);
+
+  const openPopup = (type: PopupType) => setActivePopup(type);
+  const closePopup = () => setActivePopup(null);
+
   return (
-    <div className="shadow-bottom-md min-w-[320px] max-w-[440px] border-[2px] p-8 rounded-lg shadow-bottom-gray flex flex-col gap-8">
+    <div className="shadow-bottom-md min-w-[340px] max-w-[440px] border-[2px] p-8 rounded-lg shadow-bottom-gray flex flex-col gap-8">
       <h3 className="text-center text-xl">필요 칼로리 계산기</h3>
       <form className="flex flex-col gap-8">
         <div className="flex flex-col gap-4">
-          <Input id="age" label="나이" type="text" />
-          <Input id="weight" label="체중" type="text" />
-          <Input id="weight" label="중성화 여부" type="text" />
-
-          <div className="flex justify-between gap-4 ">
-            <div className="text-sm">다이어트 필요 여부</div>
-            <Button style="secondary">비만도 확인</Button>
+          <Input id="age" label="나이" unit="살" type="text" placeholder="나이를 입력하세요" />
+          <Input id="weight" label="몸무게" type="text" unit="kg" placeholder="체중을 입력하세요" />
+          <Switch name="isNeuter" label="중성화 여부" options={neuterOptions}/>
+          <div className="flex gap-2 items-end justify-between">
+            <Switch name="isneedDiet" label="다이어트 필요 여부" options={dietOptions} />
+            <Button
+                  style="secondary"
+                  type="button"
+                  onClick={() => openPopup('check-body-condition')}
+                >
+                  비만도 확인
+                </Button>
           </div>
         </div>
 
         <Button>계산하기</Button>
       </form>
+
+      <Popup
+        title="비만도 확인"
+        closeButton
+        onClose={closePopup}
+        visible={activePopup === 'check-body-condition'}
+      >
+        (이미지)
+      </Popup>
     </div>
   );
 };

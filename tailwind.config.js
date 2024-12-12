@@ -36,6 +36,7 @@ export default {
       },
       boxShadow: {
         'bottom-md': '0 6px 0 rgba(0,0,0,0.25)',
+        blue: '0px 0px 24px 8px #306FA4, 0 6px 0 rgba(0,0,0,0.25)',
       },
       borderWidth: {
         3: '3px',
