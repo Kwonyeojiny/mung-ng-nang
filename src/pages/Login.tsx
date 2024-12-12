@@ -20,7 +20,7 @@ const Login = () => {
             <div className="text-xs text-right text-black">비밀번호 찾기</div>
           </div>
           <Link to="/">
-            <Button className="w-full">Button</Button>
+            <Button className="w-full">로그인</Button>
           </Link>
           <Link to="/signup" className="text-xs text-center text-brand-blue">
             회원가입
