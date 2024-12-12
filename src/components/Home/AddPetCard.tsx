@@ -1,8 +1,8 @@
 const AddPetCard = () => {
   return (
-    <div className="flex flex-col gap-2 p-2 rounded-lg ">
-      <div className="text-center">이름</div>
-      <div className="border-[2px] rounded-3xl p-4">사진</div>
+    <div className=" w-[160px] aspect-[5/7] bg-[#D9D9D9] flex flex-col justify-center items-center p-6 rounded-lg">
+      <div className="text-center text-3xl">+</div>
+      <div className="text-sm">반려동물 추가</div>
     </div>
   );
 };

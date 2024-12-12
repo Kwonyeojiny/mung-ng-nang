@@ -1,5 +1,6 @@
 import Button from '../ui/Button';
 import Card from '../ui/Card';
+import AddPetCard from './AddPetCard';
 import PetCard from './PetCard';
 
 const HomeMyPet = () => {
@@ -15,7 +16,8 @@ const HomeMyPet = () => {
           </p>
           <Button size="lg">버튼</Button>
         </div>
-        <div className="flex gap-8 justify-between md:justify-end">
+        <div className="flex gap-16 md:gap-8 justify-center md:justify-end">
+          <AddPetCard />
           <PetCard />
           <PetCard />
         </div>
