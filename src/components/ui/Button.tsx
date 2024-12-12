@@ -4,7 +4,7 @@ type ButtonProps = {
   type?: 'button' | 'link';
   htmlType?: 'button' | 'submit' | 'reset';
   size?: 'sm' | 'md' | 'lg';
-  style?: 'primary' | 'secondary' | 'danger';
+  style?: 'primary' | 'secondary' | 'neutral' | 'danger';
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
@@ -26,11 +26,13 @@ const buttonStyles = {
   button: {
     primary: 'bg-brand-yellow disabled:bg-brand-yellow active:bg-[#e2a748]',
     secondary: 'bg-brand-skyblue disabled:bg-brand-skyblue active:bg-[#8fb1cc]',
+    neutral: 'bg-neutral disabled:bg-neutral active:bg-[#BAB7B4]',
     danger: '',
   },
   link: {
     primary: 'text-brand-blue',
     secondary: '',
+    neutral: '',
     danger: 'text-error',
   },
 };

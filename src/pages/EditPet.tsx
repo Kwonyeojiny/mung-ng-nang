@@ -1,30 +1,24 @@
+import { useParams } from 'react-router-dom';
 import MyPageCard from '../components/mypage/MyPageCard';
 import Avatar from '../components/ui/Avatar';
 import BirthDayInput from '../components/ui/BirthDayInput';
 import Button from '../components/ui/Button';
 import Input from '../components/ui/Input';
 import Switch from '../components/ui/Switch';
+import { NEUTER_STATUS, DIET_STATUS } from '../constants/pet';
 import { useCustomNavigation } from '../utils/navigation';
-import { PET_TYPE, NEUTER_STATUS, DIET_STATUS } from '../constants/pet';
 
-const AddPet = () => {
+const EditPet = () => {
+  const { id } = useParams(); // API 통신 시 사용 예정
   const { goBack } = useCustomNavigation();
 
   return (
     <div className="flex items-start gap-4">
       <MyPageCard>
-        <p className="flex-1 text-2xl text-center">반려동물 추가</p>
+        <p className="flex-1 text-2xl text-center">홍삼</p>
         <Avatar isEditable={true} />
         <form className="flex flex-col gap-10 w-80">
           <fieldset className="flex flex-col gap-4">
-            <Input
-              id="id"
-              label="반려동물 이름"
-              type="text"
-              placeholder="반려동물 이름을 입력하세요"
-            />
-            <Switch name="pet-type" label="반려동물 종류" options={PET_TYPE} />
-            <Input id="species" label="종" type="text" placeholder="반려동물 종을 입력하세요" />
             <BirthDayInput id="birthday" />
             <Input
               id="weight"
@@ -47,7 +41,7 @@ const AddPet = () => {
               취소
             </Button>
             <Button htmlType="submit" className="flex-1">
-              추가하기
+              칼로리 계산하기
             </Button>
           </div>
         </form>
@@ -56,4 +50,4 @@ const AddPet = () => {
   );
 };
 
-export default AddPet;
+export default EditPet;

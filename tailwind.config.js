@@ -11,6 +11,7 @@ export default {
       'brand-deep-blue-hover': '#1F5888',
       'brand-yellow': '#E5B76D',
       'brand-beige': '#EDD4C0',
+      neutral: '#CCC9C6',
       white: '#EDE8E4',
       black: '#262425',
       error: '#DE2C35',

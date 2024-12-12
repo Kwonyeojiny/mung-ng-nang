@@ -14,6 +14,7 @@ import { updatePetName } from '../store/petSlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import clsx from 'clsx';
+import { Pet } from '../types/pet';
 
 interface User {
   user_id: string;
@@ -56,6 +57,10 @@ const MyPage = () => {
     navigate('/mypage/new-pet');
   };
 
+  const handleEditPet = (id: string) => {
+    navigate(`/mypage/edit-pet/${id}`);
+  };
+
   const lessCard = pets.length < 2;
   const cardGridStyle = lessCard ? 'lg:px-24 xl:px-64 2xl:px-96' : 'xl:px-24 2xl:px-40';
 
@@ -70,8 +75,6 @@ const MyPage = () => {
         <Swiper
           spaceBetween={16}
           slidesPerView={1}
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={swiper => console.log(swiper)}
           breakpoints={{
             768: {
               slidesPerView: 2,
@@ -151,7 +154,13 @@ const MyPage = () => {
                   <p className="text-3xl">{pet.calories_needed_per_day}kcal</p>
                 </div>
 
-                <Button>칼로리 다시 계산하기</Button>
+                <Button
+                  onClick={() => {
+                    handleEditPet(pet.id);
+                  }}
+                >
+                  칼로리 다시 계산하기
+                </Button>
               </MyPageCard>
             </SwiperSlide>
           ))}

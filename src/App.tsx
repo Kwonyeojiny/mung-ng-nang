@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import MyPage from './pages/MyPage';
 import AddPet from './pages/AddPet';
+import EditPet from './pages/EditPet';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/mypage/new-pet" element={<AddPet />} />
+        <Route path="/mypage/edit-pet/:id" element={<EditPet />} />
       </Route>
     </Routes>
   );
